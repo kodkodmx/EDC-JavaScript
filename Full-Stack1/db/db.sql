@@ -1,0 +1,22 @@
+CREATE DATABASE js_edc;
+USE js_edc;
+
+CREATE TABLE `real-state` (
+	id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	available BOOLEAN DEFAULT TRUE,
+	property VARCHAR(255) NOT NULL,
+	location BOOLEAN NOT NULL,
+	price INT(11) NOT NULL
+);
+
+INSERT INTO `real-state` VALUES (NULL, DEFAULT, 'Apartment E&R 2024', TRUE, 20000);
+INSERT INTO `real-state` VALUES (NULL, DEFAULT, 'New Apartment E&R 2025', TRUE, 8000);
+INSERT INTO `real-state` VALUES (NULL, DEFAULT, 'Tiny House E&R 2025', TRUE, 28000);
+INSERT INTO `real-state` VALUES (NULL, DEFAULT, 'Bedroom', FALSE, 6000);
+INSERT INTO `real-state` VALUES (NULL, DEFAULT, 'Parking lot', FALSE, 380000);
+
+SELECT * FROM `real-state`;
+
+SHOW TABLES;
+DESCRIBE `real-state`;
+-- DROP TABLE `real-state`;
