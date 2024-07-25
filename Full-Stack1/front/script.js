@@ -1,4 +1,4 @@
-var endpoint = 'http://localhost:80/';
+var endpoint = 'http://localhost/index1.php/';
 var htmlData = "";
 var xhr = new XMLHttpRequest();
 xhr.open('GET', endpoint, true);
