@@ -1,4 +1,4 @@
-var endpoint = 'http://localhost:80/index-insert.php';
+var endpoint = 'http://edc-javascript.dvl.to/';
 var htmlData = "";
 var xhr = new XMLHttpRequest();
 xhr.open('GET', endpoint, true);
@@ -7,7 +7,7 @@ xhr.send();
 xhr.addEventListener(SubmitEvent, insertData);
 
 function insertData() {
-    var endpoint = 'http://localhost:80/index-insert.php';
+    var endpoint = 'http://edc-javascript.dvl.to/';
     var xhr = new XMLHttpRequest();
     xhr.open('POST', endpoint, true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

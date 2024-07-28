@@ -1,4 +1,4 @@
-var endpoint = 'http://localhost:80/index-select.php';
+var endpoint = 'http://edc-javascript.dvl.to/';
 var htmlData = "";
 var xhr = new XMLHttpRequest();
 xhr.open('GET', endpoint, true);
