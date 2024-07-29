@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +7,9 @@
 </head>
 <body>
     
-
-<form>
+<form id="dataForm" method="POST" action="http://edc-javascript.dvl.to/">
     <label for="id">ID:</label>
-    <input type="number" id="id" name="id" required><br><br>
+    <input type="number" id="id" name="id"><br><br>
     
     <label for="available">Available:</label>
     <input type="checkbox" id="available" name="available"><br><br>
@@ -25,13 +24,9 @@
     <input type="number" id="price" name="price" required><br><br>
     
     <input type="submit" value="Submit">
-
 </form>
 
-<div id = holder>
-
-
-</div>
+<div id="holder"></div>
 
 <script type="text/javascript" src="script-insert.js"></script>
 </body>

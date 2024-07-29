@@ -1,7 +1,7 @@
 <?php
 header( "Access-Control-Allow-Origin: *" );
 
-$db_host = "localhost";
+$db_host = "127.0.0.1";
 $db_user = "root";
 $db_pass = "";
 $db_name = "js_edc";
@@ -9,7 +9,7 @@ $db_name = "js_edc";
 $conn = mysqli_connect( $db_host, $db_user, $db_pass, $db_name );
 if( ! $conn ) { die( "DB Connection failed..!" ); }
 
-$query = "SELECT * FROM `real-state`";
+$query = "SELECT * FROM real_state";
 $query_result = mysqli_query( $conn, $query );
 $all_records = [];
 
