@@ -24,9 +24,14 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
     xhr.send(data.toString());
 
     xhr.addEventListener('load', function(e) {
-        var contenido = JSON.parse(e.target.responseText);
-        var holder = document.getElementById("holder");
-        holder.innerHTML = "<h2>" + contenido.status + "</h2>";
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var contenido = JSON.parse(e.target.responseText);
+            var holder = document.getElementById("holder");
+            holder.innerHTML = "<h2>" + contenido.status + "</h2>";
+        } else {
+            var holder = document.getElementById("holder");
+            holder.innerHTML = "<h2>Error: " + xhr.statusText + "</h2>";
+        }
     });
 
     xhr.addEventListener('error', function(e) {
