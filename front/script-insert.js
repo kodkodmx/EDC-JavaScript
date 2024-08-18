@@ -32,6 +32,9 @@ document.getElementById('dataForm').addEventListener('submit', function(event) {
             var holder = document.getElementById("holder");
             holder.innerHTML = "<h2>Error: " + xhr.statusText + "</h2>";
         }
+        setTimeout(function() {
+            holder.innerHTML = "";
+        }, 3000);
     });
 
     xhr.addEventListener('error', function(e) {
