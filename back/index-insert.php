@@ -13,7 +13,7 @@ $location_data  = isset($_POST["location"]) ? $_POST["location"] : null;
 $price_data     = isset($_POST["price"]) ? $_POST["price"] : null;
 
 if (is_null($property_data) || is_null($location_data) || is_null($price_data)) {
-    die(json_encode(["error" => "All fields are required, awaitimg for data"]));
+    die(json_encode(["error" => "All fields are required, awaitimg for data. Insert"]));
 }
 
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
