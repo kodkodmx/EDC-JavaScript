@@ -5,7 +5,7 @@ var holder 			= document.getElementById( "holder" );
 
 submit.addEventListener( "click", function( e ) {
 	e.preventDefault();
-	var dataId  	= 0; 
+	var dataId  	= inputsUI[ 0 ].value;
 	var submit		= inputsUI[ 5 ];
 	var endpoint = "http://edc-javascript.dvl.to/";
 	var xhr = new XMLHttpRequest();

@@ -7,6 +7,12 @@ $db_user = "root";
 $db_pass = "";
 $db_name = "js_edc";
 
+$property_id = isset($_POST["id"]) ? $_POST["id"] : null;
+
+if (is_null($property_id)) {
+    die(json_encode(["error" => "All fields are required, awaiting for data. Select-all"]));
+}
+
 $conn = mysqli_connect( $db_host, $db_user, $db_pass, $db_name );
 if( ! $conn ) { die( "DB Connection failed..!" ); }
 
