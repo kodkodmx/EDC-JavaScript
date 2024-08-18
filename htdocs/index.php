@@ -7,34 +7,27 @@ $db_user = "root";
 $db_pass = "";
 $db_name = "js_edc";
 
-//$available_data = isset($_POST["available"]) ? $_POST["available"] : null;
-$property_id  = isset($_POST["id"]) ? $_POST["id"] : null;
-//$location_data  = isset($_POST["location"]) ? $_POST["location"] : null;
-//$price_data     = isset($_POST["price"]) ? $_POST["price"] : null;
+$property_id = isset($_POST["id"]) ? $_POST["id"] : null;
 
 if (is_null($property_id)) {
-    die(json_encode(["error" => "All fields are required, awaitimg for data. Delete"]));
+    die(json_encode(["error" => "All fields are required, awaiting for data. Select-all"]));
 }
 
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-if (!$conn) {
-    die("DB Connection failed: " . mysqli_connect_error());
-}
+$conn = mysqli_connect( $db_host, $db_user, $db_pass, $db_name );
+if( ! $conn ) { die( "DB Connection failed..!" ); }
 
-// Usando comillas simples para las cadenas de texto y comillas invertidas para el nombre de la tabla
-$query = "DELETE FROM `real_state` WHERE id = '$property_id'";;
+$query = "SELECT * FROM `real_state`";
+$query_result = mysqli_query( $conn, $query );
+$all_records = [];
 
-$query_result = mysqli_query($conn, $query);
-
-if (!$query_result) {
-    die(json_encode(["error" => "SQL Error: " . mysqli_error($conn)]));
+while( $record = mysqli_fetch_assoc( $query_result ) ) {
+	array_push( $all_records, $record );
 }
 
 $json_data = [
-    "status" => "Record deleted"
+	"info" => "php data",
+	"data" => $all_records
 ];
 
-echo json_encode($json_data);
-
-mysqli_close($conn);
+echo json_encode( $json_data );
 ?>

@@ -7,13 +7,14 @@ $db_user = "root";
 $db_pass = "";
 $db_name = "js_edc";
 
-//$available_data = isset($_POST["available"]) ? $_POST["available"] : null;
+
+$property_id    = isset($_POST["id"]) ? $_POST["id"] : null;
 $property_data  = isset($_POST["property"]) ? $_POST["property"] : null;
 $location_data  = isset($_POST["location"]) ? $_POST["location"] : null;
 $price_data     = isset($_POST["price"]) ? $_POST["price"] : null;
 
-if (is_null($property_data) || is_null($location_data) || is_null($price_data)) {
-    die(json_encode(["error" => "All fields are required, awaiting for data. Insert2"]));
+if (is_null($property_id)) {
+    die(json_encode(["error" => "All fields are required, awaiting for data. Update"]));
 }
 
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
@@ -22,8 +23,7 @@ if (!$conn) {
 }
 
 // Usando comillas simples para las cadenas de texto y comillas invertidas para el nombre de la tabla
-$query = "INSERT INTO `real_state` VALUES (NULL, DEFAULT, '$property_data', '$location_data', '$price_data')";
-
+$query = "UPDATE `real_state` SET property='$property_data', location=$location_data, price=$price_data WHERE id=$property_id";
 $query_result = mysqli_query($conn, $query);
 
 if (!$query_result) {
@@ -31,7 +31,7 @@ if (!$query_result) {
 }
 
 $json_data = [
-    "status" => "New record created"
+    "status" => "Record updated"
 ];
 
 echo json_encode($json_data);

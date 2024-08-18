@@ -1,5 +1,6 @@
 <?php
-header( "Access-Control-Allow-Origin: *" );
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
 
 $db_host = "127.0.0.1";
 $db_user = "root";
@@ -7,9 +8,9 @@ $db_pass = "";
 $db_name = "js_edc";
 
 $conn = mysqli_connect( $db_host, $db_user, $db_pass, $db_name );
-if( ! $conn ) { die( "DB Connection failed..!. Select" ); }
+if( ! $conn ) { die( "DB Connection failed..!" ); }
 
-$query = "SELECT * FROM real_state";
+$query = "SELECT * FROM `real_state`";
 $query_result = mysqli_query( $conn, $query );
 $all_records = [];
 
