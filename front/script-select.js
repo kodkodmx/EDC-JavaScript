@@ -32,5 +32,5 @@ submit.addEventListener( "click", function( e ) {
         
         setTimeout( function() {
             holder.innerHTML = "";
-        }, 3000 );
+        }, 5000 );
 }
